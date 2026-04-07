@@ -1,8 +1,0 @@
-user: #<username>
-password: #<password>
-ipadd:
-# - <ipadd>
-# - <ipadd>
-destination: #<ipadd>
-mask: #<mask>
-gateway: #<gateway ipadd>

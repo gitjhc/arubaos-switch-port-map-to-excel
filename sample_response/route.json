@@ -1,0 +1,33 @@
+{'_content': b'{
+        "collection_result": {
+            "total_elements_count": 1,
+            "filtered_elements_count": 1
+        },
+        "ip_route_element": [
+            {
+                "uri": "/ip-route/0.0.0.0-0.0.0.0-IRM_GATEWAY-172.31.20.1",
+                "id": "0.0.0.0-0.0.0.0-IRM_GATEWAY-172.31.20.1",
+                "destination": {
+                    "version": "IAV_IP_V4",
+                    "octets": "0.0.0.0"
+                },
+                "mask": {
+                    "version": "IAV_IP_V4",
+                    "octets": "0.0.0.0"
+                },
+                "ip_route_mode": "IRM_GATEWAY",
+                "gateway": {
+                    "version": "IAV_IP_V4",
+                    "octets": "172.31.20.1"
+                },
+                "destination_vlan": null,
+                "metric": 1,
+                "distance": 1,
+                "name": "",
+                "tag": null,
+                "bfd_ip_address": null,
+                "logging": null
+            }
+        ]
+    }', '_content_consumed': True, '_next': None, 'status_code': 200, 'headers': {'Server': 'eHTTP v2.0', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'RequestId': ''
+    }, 'raw': <urllib3.response.HTTPResponse object at 0x000001616B4DC910>, 'url': 'http: //172.31.20.13/rest/v4/ip-route', 'encoding': 'utf-8', 'history': [], 'reason': 'OK', 'cookies': <RequestsCookieJar[]>, 'elapsed': datetime.timedelta(microseconds=8579), 'request': <PreparedRequest [GET]>, 'connection': <requests.adapters.HTTPAdapter object at 0x000001616B4F1190>}

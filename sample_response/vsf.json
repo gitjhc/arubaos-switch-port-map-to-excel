@@ -1,0 +1,122 @@
+{
+  "1": {
+    "uri": "/stacking/vsf/members/system_info/1",
+    "member_id": 1,
+    "model": "Aruba2930F-24G-PoE+-4SFP Switch(JL261A)",
+    "rom_version": "WC.16.01.0005",
+    "serial_num": "CN9AHL21FG",
+    "cpu_util": 2,
+    "total_mem": 342344192,
+    "free_mem": 220336004,
+    "fan_info": [
+      {
+        "fan_id": "Sys-1",
+        "fan_state": "FS_OK",
+        "fan_failures": 0,
+        "fan_location": "Chassis"
+      },
+      {
+        "fan_id": "Sys-2",
+        "fan_state": "FS_OK",
+        "fan_failures": 0,
+        "fan_location": "Chassis"
+      }
+    ],
+    "up_time": {
+      "days": 64,
+      "hours": 17,
+      "minutes": 5
+    },
+    "temp_info": null
+  },
+  "2": {
+    "uri": "/stacking/vsf/members/system_info/2",
+    "member_id": 2,
+    "model": "Aruba2930F-24G-PoE+-4SFP Switch(JL261A)",
+    "rom_version": "WC.16.01.0005",
+    "serial_num": "CN9AHL2133",
+    "cpu_util": 0,
+    "total_mem": 342344192,
+    "free_mem": 237514824,
+    "fan_info": [
+      {
+        "fan_id": "Sys-1",
+        "fan_state": "FS_OK",
+        "fan_failures": 0,
+        "fan_location": "Chassis"
+      },
+      {
+        "fan_id": "Sys-2",
+        "fan_state": "FS_OK",
+        "fan_failures": 0,
+        "fan_location": "Chassis"
+      }
+    ],
+    "up_time": {
+      "days": 64,
+      "hours": 17,
+      "minutes": 5
+    },
+    "temp_info": null
+  },
+  "3": {
+    "uri": "/stacking/vsf/members/system_info/3",
+    "member_id": 3,
+    "model": "Aruba2930F-24G-PoE+-4SFP Switch(JL261A)",
+    "rom_version": "WC.16.01.0005",
+    "serial_num": "CN9AHL203W",
+    "cpu_util": 0,
+    "total_mem": 342344192,
+    "free_mem": 252382444,
+    "fan_info": [
+      {
+        "fan_id": "Sys-1",
+        "fan_state": "FS_OK",
+        "fan_failures": 0,
+        "fan_location": "Chassis"
+      },
+      {
+        "fan_id": "Sys-2",
+        "fan_state": "FS_OK",
+        "fan_failures": 0,
+        "fan_location": "Chassis"
+      }
+    ],
+    "up_time": {
+      "days": 64,
+      "hours": 17,
+      "minutes": 5
+    },
+    "temp_info": null
+  },
+  "4": {
+    "uri": "/stacking/vsf/members/system_info/4",
+    "member_id": 4,
+    "model": "Aruba2930F-24G-PoE+-4SFP Switch(JL261A)",
+    "rom_version": "WC.16.01.0008",
+    "serial_num": "CN16HL204H",
+    "cpu_util": 0,
+    "total_mem": 342344192,
+    "free_mem": 252374992,
+    "fan_info": [
+      {
+        "fan_id": "Sys-1",
+        "fan_state": "FS_OK",
+        "fan_failures": 0,
+        "fan_location": "Chassis"
+      },
+      {
+        "fan_id": "Sys-2",
+        "fan_state": "FS_OK",
+        "fan_failures": 0,
+        "fan_location": "Chassis"
+      }
+    ],
+    "up_time": {
+      "days": 64,
+      "hours": 16,
+      "minutes": 51
+    },
+    "temp_info": null
+  }
+}

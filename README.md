@@ -1,35 +1,34 @@
 # arubaos-switch-python
 
-These scripts are written for ArubaOS Switch API version 4.0.
+This project uses the ArubaOS Switch API v4 to collect switch data and generate Excel reports.
 
-## Structure
+## Simple Usage
 
-* REST API call functions are found in the /src folder.
-* Functions from the /src folder are combined to emulate network processes that are stored in the /workflows folder.
-* Data to be imported into functions is stored in the /sampledata folder.
+1. Install the package in editable mode:
+
+   ```bash
+   pip install -e .
+   ```
+
+2. Add target switch IP addresses in `data/ip_list.py`.
+
+3. Run the script:
+
+   ```bash
+   python run.py
+   ```
+
+4. If you want to change VLAN colors in the Excel output, register them in `tools/colors.py`.
+
+## Output
+
+This script generates separate Excel sheets for:
+
+* PORT_MAP
 
 
-## How to run this code
-There are different workflows covered in this repo under /workflows directory. Before starting ensure the switch REST API is enabled:
-```switch# rest-interface```
+## Source
 
+Original GitHub repository: https://github.com/aruba/arubaos-switch-api-python
 
-In order to run these scripts, please complete the steps below:
-1. install virtual env (refer https://docs.python.org/3/library/venv.html). Make sure python version 3 is installed in system.
-    
-    ```
-    $ python3 -m venv switchenv
-    ```
-2. Activate the virtual env
-    ```
-    $ source switchenv/bin/activate
-    ```
-3. Install all packages required from requirements file
-    ```
-    (switchenv)$ pip install -r /arubaos-switch-api-python/requirements.txt
-    ```
-
-4. Open the project arubaos-switch-api-python from an editor (eg: Pycharm)
-5. Set the project interpreter as the new virtual env created in step 1
-6. Go to corresponding data yaml of each workflow and give the correct switch ip and credentials
-7. Now you can run different workflows from arubaos-switch-api-python/workflows E.G. `base_provision.py` 
+Original work by Aruba.
