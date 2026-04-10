@@ -12,7 +12,7 @@ Common LLDP OUIs:
 
 import json
 import requests
-from src import common
+from aruba_rest.src import common
 
 
 def create_deviceprofile(baseurl, deviceprofile1, cookie_header):

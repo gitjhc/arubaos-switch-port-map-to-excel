@@ -1,7 +1,6 @@
 import xlsxwriter
 import urllib3
-from workflows.create_port_map.create_port_map import PortMapCreator
-from tools.colors import get_color
+from aruba_rest.tools.colors import get_color
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 

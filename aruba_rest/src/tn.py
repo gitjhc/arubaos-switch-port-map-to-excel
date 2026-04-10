@@ -6,7 +6,7 @@ Modules Import
 """
 import requests
 import json
-from src import common
+from aruba_rest.src import common
 
 """
 Functions which use LLDP APIs on AOS-Switch

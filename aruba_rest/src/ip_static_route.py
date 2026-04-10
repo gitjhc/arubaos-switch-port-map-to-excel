@@ -4,7 +4,7 @@ Module to GET and configure IP static routes.
 
 import requests
 import json
-from src import common
+from aruba_rest.src import common
 
 
 def get_ip_route(baseurl, cookie_header):

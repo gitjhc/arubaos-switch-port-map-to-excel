@@ -1,7 +1,8 @@
 import urllib3
-from src import loginOS, vlan, ports, vsf, ip_static_route
-from tools.base_url import base_url
-from tools.mask_text import enterPasswd, enterId
+from aruba_rest.src import ip_static_route, loginOS, ports, vlan
+from aruba_rest.src import vsf
+from aruba_rest.tools.base_url import base_url
+from aruba_rest.tools.mask_text import enterPasswd, enterId
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 

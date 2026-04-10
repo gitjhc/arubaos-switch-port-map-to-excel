@@ -5,7 +5,7 @@
 Modules Import
 """
 from sampledata import getjinja
-from src import common
+from aruba_rest.src import common
 
 """
 Functions used to configure/manage VXLAN on AOS-S

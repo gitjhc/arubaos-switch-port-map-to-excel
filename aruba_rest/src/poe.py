@@ -1,7 +1,7 @@
 import logging
 import requests
-from src import common
-from tools import ExcelOps
+from aruba_rest.src import common
+from aruba_rest.tools import ExcelOps
 
 
 def monitor_poe(baseurl, cookie_header):

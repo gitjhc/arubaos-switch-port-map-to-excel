@@ -2,7 +2,7 @@ import requests
 import json
 import pprint
 import xlsxwriter
-from src import common
+from aruba_rest.src import common
 
 
 def name_ports(baseurl, cookie_header, portname):
