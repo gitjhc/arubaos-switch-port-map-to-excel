@@ -1,13 +1,16 @@
 import urllib3
 from src import loginOS, vlan, ports, vsf, ip_static_route
 from tools.base_url import base_url
+from tools.mask_text import enterPasswd, enterId
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 class PortMapCreator():
-    def __init__(self, ip):
-        self.baseurl = base_url(ip)
-        self.cookie_header = loginOS.login_os(self.baseurl)
+    def __init__(self):
+        self.baseurl = None
+        self.__id = None
+        self.__passwd = None
+        self.cookie_header = None
 
     def __enter__(self):
         return self
@@ -16,8 +19,16 @@ class PortMapCreator():
         print('--logout--')
         self.logout()
 
+    def set_ip(self, ip: str):
+        self.baseurl = base_url(ip)
+
+    def set_account(self):
+        self.__id = enterId()
+        self.__passwd = enterPasswd()
+
     def login(self):
-        self.cookie_header = loginOS.login_os(self.data, self.baseurl)
+        self.cookie_header = loginOS.login_os(
+            self.baseurl, self.__id, self.__passwd)
 
     def logout(self):
         loginOS.logout(self.baseurl, self.cookie_header)
@@ -46,21 +57,37 @@ class PortMapCreator():
         return vlan_list
 
     def get_ports(self) -> list:
-        port_datas = ports.get_all_ports(self.baseurl, self.cookie_header)
-        if not isinstance(port_datas, dict):
+        port_names = ports.get_all_ports_with_name(
+            self.baseurl, self.cookie_header)
+        port_vlans = ports.get_all_ports_with_vlan(
+            self.baseurl, self.cookie_header)
+
+        if not isinstance(port_names, dict) or not isinstance(port_vlans, dict):
             return []
 
+        port_name_items = port_names.get('port_element', [])
+        port_vlan_items = port_vlans.get('vlan_port_element', [])
+
+        vlan_map = {
+            item.get('port_id'): item.get('vlan_id')
+            for item in port_vlan_items
+            if item.get('port_mode') == 'POM_UNTAGGED'
+        }
+
         port_list = []
-        for port_item in port_datas.get('port_element', []):
+        for port_item in port_name_items:
             if not isinstance(port_item, dict):
                 continue
+
+            p_id = port_item.get('id', '')
+
             port_list.append({
-                'id': port_item.get('id', ''),
+                'id': p_id,
                 'name': port_item.get('name', ''),
+                'vlan_id': vlan_map.get(p_id, ''),
                 'is_enabled': port_item.get('is_port_enabled', ''),
                 'is_port_up': port_item.get('is_port_up', ''),
             })
-
         return port_list
 
     def get_vsf_links(self) -> list:

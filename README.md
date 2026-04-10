@@ -24,7 +24,46 @@ This project uses the ArubaOS Switch API v4 to collect switch data and generate 
 
 This script generates separate Excel sheets for:
 
-* PORT_MAP
+* VLAN
+* PORT
+* VSF
+* ROUTE
+
+## How to run this code
+
+There are different workflows covered in this repo under the `workflows/` directory. Before starting, ensure the switch REST API is enabled:
+
+```bash
+switch# rest-interface
+```
+
+In order to run these scripts, please complete the steps below:
+
+1. Install virtual env. Make sure Python 3 is installed on the system.
+
+   ```bash
+   python3 -m venv switchenv
+   ```
+
+2. Activate the virtual env.
+
+   ```bash
+   source switchenv/bin/activate
+   ```
+
+3. Install all packages required from the requirements file.
+
+   ```bash
+   pip install -r /arubaos-switch-api-python/requirements.txt
+   ```
+
+4. Open the project `arubaos-switch-api-python` from an editor such as PyCharm.
+
+5. Set the project interpreter to the new virtual env created in step 1.
+
+6. Go to the corresponding data YAML file for each workflow and provide the correct switch IP and credentials.
+
+7. Run the workflows from `arubaos-switch-api-python/workflows`, for example `base_provision.py`.
 
 
 ## Source

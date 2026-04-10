@@ -69,7 +69,7 @@ class PortMapToExcel():
                 'vlan_id', ''), self._excel_format(color=get_color(idx)))
             worksheet.write(self.current_row, 1, vlan_item.get(
                 'name', ''), self._excel_format(color=get_color(idx)))
-            self.vlan_color_match[vlan_item.get('name', '')] = get_color(idx)
+            self.vlan_color_match[vlan_item.get('vlan_id', '')] = {'color': get_color(idx), 'vlan_name': vlan_item.get('name', '')}
             self.current_row += 1
 
         self.current_row += 2
@@ -162,26 +162,31 @@ class PortMapToExcel():
         for idx, port_item in enumerate(port_map):
             if port_item['id'].split('/')[0] != port_map[idx-1]['id'].split('/')[0]:
                 if idx != 0:
-                    self.current_row += 2
+                    self.current_row += 3
                     col_num = 0
 
             if port_item.get('is_enabled', False):
-                worksheet.write(self.current_row - 1, col_num,
+                worksheet.write(self.current_row, col_num,
                                 port_item.get('id', ''), self._excel_format(color='#D9EAD3'))
             else:
-                worksheet.write(self.current_row - 1, col_num,
+                worksheet.write(self.current_row, col_num,
                                 port_item.get('id', ''), self._excel_format())
 
+
+            color = self.vlan_color_match.get(port_item.get('vlan_id', ''), {})
             worksheet.write(
-                self.current_row,
+                self.current_row+1,
+                col_num, 
+                color.get('vlan_name', None),
+                self._excel_format(color = color.get('color'))
+            )
+            worksheet.write(
+                self.current_row+2,
                 col_num, port_item.get('name', ''),
-                self._excel_format(
-                    color=self.vlan_color_match.get(
-                        port_item.get('name', ''), None)
-                )
+                self._excel_format(color = color.get('color'))
             )
             col_num += 1
-        self.current_row += 3
+        self.current_row += 5
 
     def run(self, vlan_map, port_map, vsf_map, route_map):
         self.vlan_map_excel(vlan_map=vlan_map)

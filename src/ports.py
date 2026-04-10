@@ -253,10 +253,19 @@ def get_transceiver_diagnostics(baseurl, cookie_header, transceiver):
     if response.status_code == 200:
         return response.json()
 
-def get_all_ports(baseurl, cookie_header):
+def get_all_ports_with_name(baseurl, cookie_header):
     """모든 포트의 현재 설정 상태를 조회"""
     url = baseurl + 'ports'
     headers = {'cookie': cookie_header}
     response = requests.get(url, verify=False, headers=headers)
     if response.status_code == 200:
         return response.json()
+
+def get_all_ports_with_vlan(baseurl, cookie_header):
+    """모든 포트의 현재 VLAN 설정 상태를 조회"""
+    url = baseurl + 'vlans-ports'
+    headers = {'cookie': cookie_header}
+    response = requests.get(url, verify=False, headers=headers)
+    if response.status_code == 200:
+        return response.json()
+

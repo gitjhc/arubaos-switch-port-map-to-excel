@@ -1,11 +1,10 @@
 import json
 import requests
-from tools.mask_text import enterPasswd, enterId
 
 
-def login_os(url):
-    username = enterId()
-    password = enterPasswd()
+def login_os(url, id, password):
+    username = id
+    password = password
     params = {'userName': username, 'password': password}
     proxies = {'http': None, 'https': None}
     url_login = url + "login-sessions"
