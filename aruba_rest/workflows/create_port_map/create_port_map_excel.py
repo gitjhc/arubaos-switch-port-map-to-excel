@@ -69,7 +69,8 @@ class PortMapToExcel():
                 'vlan_id', ''), self._excel_format(color=get_color(idx)))
             worksheet.write(self.current_row, 1, vlan_item.get(
                 'name', ''), self._excel_format(color=get_color(idx)))
-            self.vlan_color_match[vlan_item.get('vlan_id', '')] = {'color': get_color(idx), 'vlan_name': vlan_item.get('name', '')}
+            self.vlan_color_match[vlan_item.get('vlan_id', '')] = {
+                'color': get_color(idx), 'vlan_name': vlan_item.get('name', '')}
             self.current_row += 1
 
         self.current_row += 2
@@ -172,18 +173,17 @@ class PortMapToExcel():
                 worksheet.write(self.current_row, col_num,
                                 port_item.get('id', ''), self._excel_format())
 
-
             color = self.vlan_color_match.get(port_item.get('vlan_id', ''), {})
             worksheet.write(
                 self.current_row+1,
-                col_num, 
+                col_num,
                 color.get('vlan_name', None),
-                self._excel_format(color = color.get('color'))
+                self._excel_format(color=color.get('color'))
             )
             worksheet.write(
                 self.current_row+2,
                 col_num, port_item.get('name', ''),
-                self._excel_format(color = color.get('color'))
+                self._excel_format(color=color.get('color'))
             )
             col_num += 1
         self.current_row += 5
