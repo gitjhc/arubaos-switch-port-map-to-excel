@@ -1,10 +1,10 @@
 import aruba_rest.workflows.create_port_map.create_port_map as create_port_map
 from aruba_rest.workflows.create_port_map.create_port_map_excel import PortMapToExcel
+from ip_list import ip_list as SetIP
 
 
-ip_list = [
-    '172.'
-]
+
+ip_list = SetIP()
 
 
 def main():
@@ -20,8 +20,10 @@ def main():
             route_map = port_map_creator.get_routes()
 
             with PortMapToExcel(file_path=f'./port_map({ip}).xlsx') as excel_creator:
-                excel_creator.run(vlan_map=vlan_map, port_map=port_map,
-                                  vsf_map=vsf_map, route_map=route_map)
+                excel_creator.vlan_map_excel(vlan_map=vlan_map)
+                excel_creator.port_map_excel(port_map=port_map, header_type='is_port_up') # header_type: 'is_enabled' or 'is_port_up'
+                excel_creator.vsf_map_excel(vsf_map=vsf_map)
+                excel_creator.route_map_excel(route_map=route_map)
 
 
 if __name__ == "__main__":

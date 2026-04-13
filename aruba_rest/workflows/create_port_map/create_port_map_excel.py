@@ -145,7 +145,11 @@ class PortMapToExcel():
 
         self.current_row += 2
 
-    def port_map_excel(self, port_map):
+    def port_map_excel(self, port_map, header_type='is_enabled'):
+        '''
+        header_type: str = 'is_enabled' or 'is_port_up'
+        '''
+
         worksheet = self.port_map_sheet
 
         if not self.vlan_color_match:
@@ -165,7 +169,7 @@ class PortMapToExcel():
                     self.current_row += 3
                     col_num = 0
 
-            if port_item.get('is_enabled', False):
+            if port_item.get(header_type, False):
                 worksheet.write(self.current_row, col_num,
                                 port_item.get('id', ''), self._excel_format(color='#D9EAD3'))
             else:
@@ -186,9 +190,3 @@ class PortMapToExcel():
             )
             col_num += 1
         self.current_row += 5
-
-    def run(self, vlan_map, port_map, vsf_map, route_map):
-        self.vlan_map_excel(vlan_map=vlan_map)
-        self.port_map_excel(port_map=port_map)
-        self.vsf_map_excel(vsf_map=vsf_map)
-        self.route_map_excel(route_map=route_map)
